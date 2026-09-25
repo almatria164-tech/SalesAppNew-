@@ -1,3 +1,4 @@
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -8,10 +9,6 @@
         android:label="Sales App"
         android:supportsRtl="true"
         android:theme="@style/Theme.SalesAppNew">
-
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
@@ -27,3 +24,4 @@
     </application>
 
 </manifest>
+```
