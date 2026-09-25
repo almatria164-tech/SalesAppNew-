@@ -1,4 +1,3 @@
-```java
 package com.example.salesappnew;
 
 import android.os.Bundle;
@@ -63,32 +62,4 @@ public class MainActivity extends AppCompatActivity {
             String passwordText = password.getText().toString().trim();
 
             if (emailText.isEmpty() || passwordText.isEmpty()) {
-                Toast.makeText(
-                        this,
-                        "اكتب البريد الإلكتروني وكلمة المرور",
-                        Toast.LENGTH_SHORT
-                ).show();
-                return;
-            }
-
-            mAuth.createUserWithEmailAndPassword(emailText, passwordText)
-                    .addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(
-                                    this,
-                                    "تم إنشاء الحساب بنجاح",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                        } else {
-                            Toast.makeText(
-                                    this,
-                                    "فشل إنشاء الحساب: "
-                                            + task.getException().getMessage(),
-                                    Toast.LENGTH_LONG
-                            ).show();
-                        }
-                    });
-        });
-    }
-}
-```
+               
