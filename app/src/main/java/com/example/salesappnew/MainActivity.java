@@ -1,30 +1,20 @@
 package com.example.salesappnew;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        EditText email = findViewById(R.id.email);
-        EditText password = findViewById(R.id.password);
-        Button loginButton = findViewById(R.id.loginButton);
-        Button registerButton = findViewById(R.id.registerButton);
+        TextView text = new TextView(this);
+        text.setText("Sales App يعمل بنجاح");
+        text.setTextSize(28);
+        text.setPadding(40, 100, 40, 40);
 
-        loginButton.setOnClickListener(v ->
-                Toast.makeText(this, "واجهة التطبيق تعمل", Toast.LENGTH_SHORT).show()
-        );
-
-        registerButton.setOnClickListener(v ->
-                Toast.makeText(this, "واجهة التطبيق تعمل", Toast.LENGTH_SHORT).show()
-        );
+        setContentView(text);
     }
 }
