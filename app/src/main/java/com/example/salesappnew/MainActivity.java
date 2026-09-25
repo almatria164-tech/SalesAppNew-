@@ -25,13 +25,15 @@ public class MainActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
         Button registerButton = findViewById(R.id.registerButton);
 
+        // تسجيل الدخول
         loginButton.setOnClickListener(v -> {
+
             String emailText = email.getText().toString().trim();
             String passwordText = password.getText().toString().trim();
 
             if (emailText.isEmpty() || passwordText.isEmpty()) {
                 Toast.makeText(
-                        this,
+                        MainActivity.this,
                         "اكتب البريد الإلكتروني وكلمة المرور",
                         Toast.LENGTH_SHORT
                 ).show();
@@ -40,31 +42,53 @@ public class MainActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(emailText, passwordText)
                     .addOnCompleteListener(this, task -> {
+
                         if (task.isSuccessful()) {
+
                             Toast.makeText(
-                                    this,
+                                    MainActivity.this,
                                     "تم تسجيل الدخول بنجاح",
                                     Toast.LENGTH_SHORT
                             ).show();
+
+                            // هنا سننتقل لاحقًا إلى واجهة التطبيق الرئيسية
+
                         } else {
+
+                            String error = "فشل تسجيل الدخول";
+
+                            if (task.getException() != null) {
+                                error += ": " + task.getException().getMessage();
+                            }
+
                             Toast.makeText(
-                                    this,
-                                    "فشل تسجيل الدخول: "
-                                            + task.getException().getMessage(),
+                                    MainActivity.this,
+                                    error,
                                     Toast.LENGTH_LONG
                             ).show();
                         }
                     });
         });
 
+        // إنشاء حساب
         registerButton.setOnClickListener(v -> {
+
             String emailText = email.getText().toString().trim();
             String passwordText = password.getText().toString().trim();
 
             if (emailText.isEmpty() || passwordText.isEmpty()) {
                 Toast.makeText(
-                        this,
+                        MainActivity.this,
                         "اكتب البريد الإلكتروني وكلمة المرور",
+                        Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+
+            if (passwordText.length() < 6) {
+                Toast.makeText(
+                        MainActivity.this,
+                        "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
                         Toast.LENGTH_SHORT
                 ).show();
                 return;
@@ -72,17 +96,28 @@ public class MainActivity extends AppCompatActivity {
 
             mAuth.createUserWithEmailAndPassword(emailText, passwordText)
                     .addOnCompleteListener(this, task -> {
+
                         if (task.isSuccessful()) {
+
                             Toast.makeText(
-                                    this,
+                                    MainActivity.this,
                                     "تم إنشاء الحساب بنجاح",
                                     Toast.LENGTH_SHORT
                             ).show();
+
+                            // هنا سنضيف لاحقًا الانتقال إلى التطبيق
+
                         } else {
+
+                            String error = "فشل إنشاء الحساب";
+
+                            if (task.getException() != null) {
+                                error += ": " + task.getException().getMessage();
+                            }
+
                             Toast.makeText(
-                                    this,
-                                    "فشل إنشاء الحساب: "
-                                            + task.getException().getMessage(),
+                                    MainActivity.this,
+                                    error,
                                     Toast.LENGTH_LONG
                             ).show();
                         }
