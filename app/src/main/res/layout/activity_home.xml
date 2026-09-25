@@ -1,25 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp">
+    android:layoutDirection="rtl"
+    android:textDirection="rtl">
 
-    <TextView
-        android:id="@+id/welcomeText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="مرحبًا بك في Sales App"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="30dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="تسجيل الخروج" />
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="لوحة التحكم"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/userEmailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المستخدم"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- إجمالي المبيعات -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#E8F5E9"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="إجمالي المبيعات"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalSalesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+        <!-- إجمالي المقبوضات -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#E3F2FD"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="إجمالي المقبوضات"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalReceiptsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+        <!-- العمولة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#FFF3E0"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="العمولة"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/commissionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+        <!-- عدد الفواتير -->
+        <Button
+            android:id="@+id/invoicesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الفواتير"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- العملاء -->
+        <Button
+            android:id="@+id/customersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="العملاء"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- المنتجات -->
+        <Button
+            android:id="@+id/productsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المنتجات والمخزون"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- سندات القبض -->
+        <Button
+            android:id="@+id/receiptsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="سندات القبض"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- التقارير -->
+        <Button
+            android:id="@+id/reportsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="التقارير"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- الإعدادات -->
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الإعدادات"
+            android:textSize="17sp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="تسجيل الخروج"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+</ScrollView>
