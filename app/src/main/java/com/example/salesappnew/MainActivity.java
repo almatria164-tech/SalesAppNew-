@@ -1,5 +1,6 @@
 package com.example.salesappnew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT
                             ).show();
 
-                            // هنا سننتقل لاحقًا إلى واجهة التطبيق الرئيسية
+                            Intent intent =
+                                    new Intent(MainActivity.this, HomeActivity.class);
+
+                            startActivity(intent);
+                            finish();
 
                         } else {
 
@@ -105,7 +110,11 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT
                             ).show();
 
-                            // هنا سنضيف لاحقًا الانتقال إلى التطبيق
+                            Intent intent =
+                                    new Intent(MainActivity.this, HomeActivity.class);
+
+                            startActivity(intent);
+                            finish();
 
                         } else {
 
