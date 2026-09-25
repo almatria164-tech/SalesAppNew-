@@ -1,5 +1,6 @@
 package com.example.salesappnew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,9 +30,9 @@ public class HomeActivity extends AppCompatActivity {
         totalReceiptsText = findViewById(R.id.totalReceiptsText);
         commissionText = findViewById(R.id.commissionText);
 
+        Button productsButton = findViewById(R.id.productsButton);
         Button logoutButton = findViewById(R.id.logoutButton);
 
-        // بيانات المستخدم
         if (mAuth.getCurrentUser() != null) {
 
             String email = mAuth.getCurrentUser().getEmail();
@@ -41,10 +42,19 @@ public class HomeActivity extends AppCompatActivity {
             );
         }
 
-        // القيم الابتدائية
         totalSalesText.setText("0.00");
         totalReceiptsText.setText("0.00");
         commissionText.setText("0.00");
+
+        // فتح شاشة المنتجات
+        productsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    HomeActivity.this,
+                    ProductsActivity.class
+            );
+
+            startActivity(intent);
+        });
 
         // تسجيل الخروج
         logoutButton.setOnClickListener(v -> {
