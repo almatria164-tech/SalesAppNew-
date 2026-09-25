@@ -1,6 +1,6 @@
+```java
 package com.example.salesappnew;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,13 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         EditText email = findViewById(R.id.email);
         EditText password = findViewById(R.id.password);
-
         Button loginButton = findViewById(R.id.loginButton);
         Button registerButton = findViewById(R.id.registerButton);
 
-        // تسجيل الدخول
         loginButton.setOnClickListener(v -> {
-
             String emailText = email.getText().toString().trim();
             String passwordText = password.getText().toString().trim();
 
@@ -44,26 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(emailText, passwordText)
                     .addOnCompleteListener(this, task -> {
-
                         if (task.isSuccessful()) {
-
                             Toast.makeText(
                                     this,
                                     "تم تسجيل الدخول بنجاح",
                                     Toast.LENGTH_SHORT
                             ).show();
-
-                            // الانتقال إلى الصفحة الرئيسية
-                            Intent intent = new Intent(
-                                    MainActivity.this,
-                                    HomeActivity.class
-                            );
-
-                            startActivity(intent);
-                            finish();
-
                         } else {
-
                             Toast.makeText(
                                     this,
                                     "فشل تسجيل الدخول: "
@@ -74,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     });
         });
 
-        // إنشاء حساب
         registerButton.setOnClickListener(v -> {
-
             String emailText = email.getText().toString().trim();
             String passwordText = password.getText().toString().trim();
 
@@ -91,26 +73,13 @@ public class MainActivity extends AppCompatActivity {
 
             mAuth.createUserWithEmailAndPassword(emailText, passwordText)
                     .addOnCompleteListener(this, task -> {
-
                         if (task.isSuccessful()) {
-
                             Toast.makeText(
                                     this,
                                     "تم إنشاء الحساب بنجاح",
                                     Toast.LENGTH_SHORT
                             ).show();
-
-                            // الانتقال إلى الصفحة الرئيسية
-                            Intent intent = new Intent(
-                                    MainActivity.this,
-                                    HomeActivity.class
-                            );
-
-                            startActivity(intent);
-                            finish();
-
                         } else {
-
                             Toast.makeText(
                                     this,
                                     "فشل إنشاء الحساب: "
@@ -122,3 +91,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+```
